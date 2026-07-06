@@ -3,446 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cottage on the Rocks - Guest Guide</title>
+    <title>Cottage on the Rocks - Guest Manual</title>
     <style>
-        :root {
-            --primary: #2d4a3e;       /* Deep Forest Green */
-            --primary-light: #5c7a6b; /* Sage Green */
-            --accent: #8b5a2b;        /* Warm Wood Brown */
-            --accent-light: #f5efe6;  /* Warm Cream */
-            --bg: #fbf9f5;            /* Soft Ivory */
-            --card-bg: #ffffff;
-            --text: #2b2b2b;          /* Soft Charcoal */
-            --text-muted: #6e7773;
-            --border: #e3ded5;
-            --emergency: #9e3a3a;     /* Deep Barn Red */
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background-color: #f4f4f4;
         }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        
-        body { 
-            background-color: var(--bg); 
-            color: var(--text); 
-            line-height: 1.7; 
-            font-family: Georgia, serif; /* Classic, cozy storybook serif */
-        }
-        
-        /* Clean Sans for highly technical/readable instructions on mobile */
-        p, li, .rule-item, nav a, .info-panel p {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-        }
-        
-        /* Emergency Alert Bar */
-        .emergency-bar { 
-            background-color: var(--emergency); 
-            color: white; 
-            padding: 14px 20px; 
-            text-align: center; 
-            font-weight: bold; 
-            font-size: 0.95rem; 
-            position: sticky; 
-            top: 0; 
-            z-index: 1000; 
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            letter-spacing: 0.5px;
-        }
-
-        /* Rustic Header */
-        header { 
-            background: linear-gradient(rgba(45, 74, 62, 0.8), rgba(45, 74, 62, 0.95)), url('https://images.unsplash.com/photo-1510798831971-661eb04b3739?auto=format&fit=crop&w=1200&q=80') no-repeat center center/cover; 
-            color: white; 
-            padding: 80px 20px; 
-            text-align: center;
-            border-bottom: 6px solid var(--accent);
-        }
-        header h1 { 
-            font-size: 3rem; 
-            font-weight: normal; 
-            font-style: italic;
-            margin-bottom: 10px; 
-            font-family: Georgia, serif;
-        }
-        header p { 
-            font-size: 1.15rem; 
-            opacity: 0.9; 
-            font-style: italic;
-            font-weight: 300; 
-        }
-        .address-tag { 
-            display: inline-block; 
-            background-color: rgba(255, 255, 255, 0.12); 
-            padding: 8px 20px; 
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 4px; 
-            font-size: 0.95rem; 
-            margin-top: 20px; 
-        }
-
-        /* Cozy Navigation Menu */
-        nav { 
-            background-color: var(--primary); 
-            padding: 12px; 
-            display: flex; 
-            justify-content: center; 
-            flex-wrap: wrap; 
-            gap: 8px; 
-            position: sticky; 
-            top: 49px; 
-            z-index: 999; 
-            border-bottom: 1px solid var(--border);
-        }
-        nav a { 
-            color: #fdfcf7; 
-            text-decoration: none; 
-            padding: 8px 14px; 
-            font-size: 0.9rem; 
-            border-radius: 4px; 
-            transition: all 0.2s;
-        }
-        nav a:hover { 
-            background-color: var(--accent); 
-            color: white;
-        }
-
-        /* Info Cards */
-        .quick-info-container { 
-            max-width: 1100px; 
-            margin: -30px auto 40px auto; 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
-            gap: 20px; 
-            padding: 0 20px; 
-            position: relative; 
-            z-index: 10; 
-        }
-        .info-panel { 
-            background: var(--card-bg); 
-            padding: 25px; 
-            border-radius: 6px; 
-            box-shadow: 0 8px 20px rgba(45,74,62,0.06); 
-            border: 1px solid var(--border);
-            border-top: 5px solid var(--primary-light); 
-        }
-        .info-panel.wifi { border-top-color: var(--accent); }
-        .info-panel h3 { 
-            color: var(--primary); 
-            margin-bottom: 12px; 
-            font-weight: normal;
-            font-size: 1.25rem; 
-        }
-        .info-panel p { font-size: 0.95rem; margin-bottom: 6px; color: #444; }
-
-        /* Document Layout Structure */
-        .main-container { max-width: 1100px; margin: 0 auto; padding: 20px; }
-        
-        section { 
-            background: var(--card-bg); 
-            padding: 50px; 
-            border-radius: 6px; 
-            margin-bottom: 40px; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.01); 
-            border: 1px solid var(--border); 
-            scroll-margin-top: 120px; 
-        }
-        section h2 { 
-            color: var(--primary); 
-            font-size: 2rem; 
-            font-weight: normal; 
-            margin-bottom: 30px; 
-            border-bottom: 1px solid var(--border); 
-            padding-bottom: 12px; 
-        }
-        
-        /* Content Details */
-        h4 { 
-            color: var(--accent); 
-            margin: 25px 0 10px 0; 
-            font-size: 1.2rem; 
-            font-weight: normal;
-        }
-        ul { margin-left: 20px; margin-bottom: 20px; }
-        li { margin-bottom: 10px; font-size: 0.95rem; color: #333; }
-        
-        /* Rustic Rule Container Items */
-        .rule-list { list-style: none; margin-left: 0; }
-        .rule-item { 
-            padding: 18px; 
-            background: var(--accent-light); 
-            border-left: 4px solid var(--accent); 
-            margin-bottom: 16px; 
-            border-radius: 0 4px 4px 0; 
-            font-size: 0.95rem; 
-            color: #3a3a3a;
-        }
-        .rule-item strong { color: var(--primary); display: block; margin-bottom: 6px; font-family: Georgia, serif; font-size: 1.05rem; }
-        
-        /* Appliance Card Layout Columns */
-        .amenity-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; margin-top: 25px; }
-        .amenity-card { 
-            background: #faf8f5; 
-            border: 1px solid var(--border); 
-            padding: 25px; 
-            border-radius: 4px; 
-        }
-        .amenity-card h3 { 
-            color: var(--primary); 
-            font-size: 1.2rem; 
-            font-weight: normal;
-            margin-bottom: 12px; 
-            border-bottom: 1px dotted var(--border);
-            padding-bottom: 6px;
-        }
-        .amenity-card p { font-size: 0.95rem; color: #444; margin-bottom: 10px; }
-        
-        /* Footer Layout Elements */
-        footer { 
-            background-color: var(--primary); 
-            color: #fdfcf7; 
-            text-align: center; 
-            padding: 50px 20px; 
-            font-size: 0.95rem; 
-            margin-top: 80px; 
-            border-top: 6px solid var(--accent);
-        }
-        footer p { opacity: 0.8; margin-bottom: 6px; }
-
-        @media (max-width: 768px) {
-            header { padding: 50px 15px; }
-            header h1 { font-size: 2.2rem; }
-            section { padding: 25px 20px; }
-            nav { position: static; }
+        #adobe-dc-view {
+            width: 100%;
+            height: 100%;
         }
     </style>
 </head>
 <body>
 
-    <div class="emergency-bar">
-        🌲 IN CASE OF EMERGENCIES, ALWAYS DIAL 911. Host Contact: (416) 568-5573.
-    </div>
+    <div id="adobe-dc-view"></div>
 
-    <header>
-        <h1>Cottage on the Rocks</h1>
-        <p>Guest Welcome Directory & Property Guide</p>
-        <div class="address-tag">🏡 1019 Classic Lane, Algonquin Highlands, Kushog Lake</div>
-    </header>
-
-    <nav>
-        <a href="#welcome">Welcome</a>
-        <a href="#logistics">Logistics</a>
-        <a href="#rules">House Rules</a>
-        <a href="#safety">Safety Manual</a>
-        <a href="#indoor">Indoor Guide</a>
-        <a href="#outdoor">Outdoor Guide</a>
-        <a href="#checkout">Check Out</a>
-    </nav>
-
-    <div class="quick-info-container">
-        <div class="info-panel wifi">
-            <h3>📶 Cottage WiFi</h3>
-            <p><strong>Network Name (SSID):</strong> Whiskey</p>
-            <p><strong>Password:</strong> ontherocks</p>
-        </div>
-        <div class="info-panel">
-            <h3>⏰ Stay Windows</h3>
-            <p><strong>Check-In:</strong> Anytime after 3:00 PM</p>
-            <p><strong>Check-Out:</strong> Anytime before 11:00 AM</p>
-        </div>
-        <div class="info-panel">
-            <h3>🏥 Nearest Medical Care</h3>
-            <p><strong>Emergency Room:</strong> Haliburton Highlands Health Services (35-40 mins by car)</p>
-        </div>
-    </div>
-
-    <div class="main-container">
-
-        <section id="welcome">
-            <h2>Welcome From Your Hosts</h2>
-            <p>Welcome to our cozy cottage escape! We're Ronny and Cassy, your hosts, and we're so excited to have you here. We both work as teachers in the GTA, but when we're not shaping young minds, we love spending our time here at the cottage. It's our little slice of heaven, where we can relax, recharge, and reconnect with nature.</p>
-            <br>
-            <p>We've put a lot of love and care into making this cottage a comfortable and welcoming space, and we hope you'll feel right at home during your stay. Our goal is to make your getaway as stress-free as possible. We're always happy to offer recommendations for local activities and attractions, so don't hesitate to ask if you need anything at all to ensure you have a 5-star stay!</p>
-            <br>
-            <p style="border-left: 3px solid var(--emergency); padding-left: 15px; font-style: italic; color: var(--emergency); font-family: -apple-system, BlinkMacSystemFont, sans-serif; font-size: 0.95rem;">
-                <strong>Please Note:</strong> If you find anything not to your satisfaction or notice any damaged or broken items, please inform us within the first 24 hours of arriving at the property so we can resolve it for you.
-            </p>
-        </section>
-
-        <section id="logistics">
-            <h2>Logistics & Packing Preparation</h2>
-            <h4>Property Access</h4>
-            <p>Your unique cabin keypad entry code will be automatically routed to you via your booking messages.</p>
-            
-            <h4>Prior to Your Stay</h4>
-            <ul>
-                <li><strong>Confirm Guest Count:</strong> Please double-check that your total tally of guests (and accompanying pets!) aligns exactly with your booking reservation.</li>
-                <li><strong>Review This Manual:</strong> Reviewing these operational points beforehand guarantees a perfectly smooth, stress-free stay upon arrival.</li>
-            </ul>
-
-            <h4>Cottage Packing Matrix</h4>
-            <div class="amenity-grid">
-                <div class="amenity-card">
-                    <h3>🧺 Provided by Your Hosts</h3>
-                    <p>Bath towels, lakefront towels, hand towels, pillows, cozy duvets, linens, and fresh sheets.</p>
-                    <p>Plates, cutleries, cooking utensils, and fully stocked culinary essentials (oil, flour, basic seasoning, and cooking wine).</p>
-                    <p>Condiments (ketchup, mustard, relish, BBQ sauce), coffee, Orange Pekoe tea, propane tanks, and BBQ tools.</p>
-                    <p>Bar soap, hand soap, shampoo, and conditioner units.</p>
-                </div>
-                <div class="amenity-card" style="background: var(--accent-light);">
-                    <h3>🎒 Recommended Items to Bring</h3>
-                    <p>Your favorite food provisions & dynamic drinks.</p>
-                    <p>Weather-appropriate outdoor layers and durable wilderness footwear.</p>
-                    <p>Bathing suits and personal lakeside items.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="rules">
-            <h2>House Rules</h2>
-            <div class="rule-list">
-                <div class="rule-item">
-                    <strong>1. Off-Limits Spaces</strong>
-                    Locked host storage cupboards, the structural basement, neighboring cottages, and the exterior maintenance shed are strictly private and off-limits.
-                </div>
-                <div class="rule-item">
-                    <strong>2. Clean Air Smoking Rule</strong>
-                    Smoking of any kind is strictly prohibited inside the cottage or anywhere on the property boundaries.
-                </div>
-                <div class="rule-item">
-                    <strong>3. Gatherings & Social Functions</strong>
-                    Parties, unexpected crowds, and large unverified social gatherings are strictly prohibited.
-                </div>
-                <div class="rule-item">
-                    <strong>4. Noise Boundaries & Neighbors</strong>
-                    Sound travels exceptionally far across open water. Please respect our close community by keeping music and voices minimal. The township enforces a strict quiet-hours window between 11:00 PM and 7:00 AM.
-                </div>
-                <div class="rule-item">
-                    <strong>5. Fire Bylaws & Regulations</strong>
-                    No daytime open burning (between 7:00 AM and 7:00 PM) is permitted between April 1st and October 31st. General grass fires are completely illegal. Always check the live regional board to confirm no temporary fire bans are active before lighting matches.
-                </div>
-                <div class="rule-item">
-                    <strong>6. Wildlife Trash Protocol</strong>
-                    Please place all compiled refuse securely in front of the front porch area, keeping recyclables meticulously split from general kitchen garbage. Detailed sorting is outlined below.
-                </div>
-            </div>
-        </section>
-
-        <section id="safety">
-            <h2>Lakeside & Cabin Safety Protocol</h2>
-            
-            <h4>Boating & Lake Safety</h4>
-            <ul>
-                <li><strong>Life Jackets are Mandatory:</strong> Transport Canada-approved life jackets (PFDs) are situated in our exterior kit. It is the law and an absolute safety necessity for everyone to wear a properly tailored life jacket while on the open water.</li>
-                <li><strong>Daylight Boundaries Only:</strong> Watercraft are exclusively cleared for daytime usage. No paddling after sunset or prior to sunrise—motorized boats cannot see you in the pitch-black environment.</li>
-                <li><strong>Sober Operations:</strong> Do not use watercraft under the influence of alcohol or cannabis. Save the drinks for relaxing on the dock safely after all boating is finished.</li>
-                <li><strong>Weather Management:</strong> If whitecaps form across the lake waves or thunder rolls into the valley, pull all boats safely to shore.</li>
-                <li><strong>Lock Down Gear:</strong> Always return boats securely to their storage racks and snap down the SUP locks when finished to prevent gusts of wind from drifting them away.</li>
-            </ul>
-
-            <h4>Campfire & Stove Operations</h4>
-            <ul>
-                <li><strong>Constant Presence:</strong> An adult (18+) must sit directly with a burning campfire or stove until the logs are completely burned out.</li>
-                <li><strong>The Drown & Stir Rule:</strong> Never leave a fire to slowly smolder out. Deluge the coals with lake water, churn up the embers thoroughly with an iron poker or branch, and flood it a second time. It must be cold to the touch before sleeping.</li>
-                <li><strong>Wind Variables:</strong> If high winds blow sparks or embers sideways toward nearby brush lines, extinguish the fire completely.</li>
-                <li><strong>Buffer Space:</strong> Maintain a 3-foot clearance zone around the fire pit ring for chairs and blankets. Running or horseplay around the burning area is strictly prohibited.</li>
-            </ul>
-
-            <h4>Wilderness Elements</h4>
-            <ul>
-                <li><strong>Rustic Footing:</strong> Cottage spaces are rustic. Watch out for variable sloping ground, exposed tree roots, and damp, mossy stone shorelines. Please wear solid outdoor footwear.</li>
-                <li><strong>Pet Supervision:</strong> Keep pets under close watch. Do not permit them to roam onto neighboring properties, chase local wildlife, or swim out past safe visibility thresholds.</li>
-                <li><strong>Secure Animal Trash:</strong> To protect local black bears, raccoons, and rodents, place all outdoor refuse containers directly inside our specialized Animal-Stopper protective bins. Never leave foodstuffs sitting on the open balcony decks.</li>
-            </ul>
-        </section>
-
-        <section id="indoor">
-            <h2>Indoor Living Guide</h2>
-            
-            <div class="amenity-grid">
-                <div class="amenity-card">
-                    <h3>🎬 Rock Room Projector</h3>
-                    <p>Gently ease down the projector screen with the attached cord until the structural black border appears at the header. Use the primary Apple TV remote to switch on the grid. If it delays past 10 seconds, activate the system with the dedicated projector controller. The soundbar input must highlight <strong>OPT (Optical)</strong>. Open the Plex app to stream our host entertainment library.</p>
-                </div>
-                <div class="amenity-card">
-                    <h3>🪵 Traditional Wood Stove</h3>
-                    <p>Only burn seasoned, fully dried firewood logs. You must verify that the chimney flue/damper is pulled completely open prior to striking matches, or the living room will fill with smoke instantly. Do not use lighter fluid, paper wraps, or chemical accelerants—use the provided wood kindling and fire-starter blocks. Keep all furniture 3 feet back. <em>Please leave ash removal to our professional cleanup staff.</em></p>
-                </div>
-                <div class="amenity-card">
-                    <h3>🚰 Water System & Safety</h3>
-                    <p>All running water entering the cabin runs through an advanced sediment filter array coupled with a professional UV sterilization module, making it completely safe to consume. For premium-tier drinking and cooking water, utilize the secondary small chrome faucet located on the left side of the main kitchen sink, which routes water through an 8-stage reverse osmosis filter.</p>
-                </div>
-                <div class="amenity-card">
-                    <h3>🍳 Kitchen Appliance Guide</h3>
-                    <p><strong>Oven:</strong> Please retain the large baking pan sheet permanently at the baseline base to capture grease and function as a drip tray.</p>
-                    <p><strong>Stove Top:</strong> If touch screens do not respond, confirm your induction pan is sitting square on the zone. Power grid flickers can freeze the touch electronics; reset the stove by walking to the triangular wood cabinet near the bathroom and switching the main stove breaker switch off for 5 minutes, then back on.</p>
-                </div>
-                <div class="amenity-card">
-                    <h3>🍽️ Dishwasher Settings</h3>
-                    <p>Engage the power on the right section (Button 2). Add one automated cleaning pod from the stock under the sink. Firmly press and hold down the principal Start key for 2 full seconds to lock in and run the loop (Button 3).</p>
-                </div>
-                <div class="amenity-card">
-                    <h3>📦 Utility & Storage Drawers</h3>
-                    <p><strong>Coffee Table Compartments:</strong> USB cords, clip-on hiking lights, heavy extension line reels, electronic flame lighters, waterproof outdoor Bluetooth speakers, and electric mattress/toy air pumps.</p>
-                    <p><strong>Entertainment Center:</strong> Board games, cards, chess layouts, fine art acrylic paints, brushes, and raw canvas frames.</p>
-                    <p><strong>Closet Reserves:</strong> Graco Pack n' Play, infant safety play mat, Queen-sized tri-fold backup mattress, air fans, utility vacuums, and spot carpet cleaners.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="outdoor">
-            <h2>Outdoor Living Guide</h2>
-            <h4>Biological Mosquito Dunk System</h4>
-            <p>You will notice distinct buckets of standing water deployed across the property lines. These are treated with organic Mosquito Dunks—small beige donut rings that dissolve gradually in water. They emit a target-specific bacterium that naturally halts mosquito larvae growth. They are completely certified for watering troughs and are 100% harmless to drinking pets, birds, regional wildlife, foliage, lake fish, and helpful frogs or turtles.</p>
-            
-            <h4 style="margin-top:25px;">Watercraft Fleet Fleet</h4>
-            <ul>
-                <li>2x Single-Person Kayak Frameworks</li>
-                <li>1x Two-Person Wood-Trim Canoe</li>
-                <li>1x Stand-Up Paddleboard (SUP)</li>
-                <li>5x Adult Life Jackets (Variable sizing metrics)</li>
-                <li>2x Specialized Canine Life Jackets (1 Medium, 1 Large size)</li>
-                <li>Pre-hung rope hammocks are securely tensioned directly near the lake shoreline.</li>
-            </ul>
-
-            <h4>Balcony Cushion Management</h4>
-            <p>All exterior fabric cushions are stored inside the weatherproof deck box on the balcony deck. Kindly return them to the box immediately after use to protect them from surprise rain showers or heavy morning dew drops.</p>
-        </section>
-
-        <section id="checkout">
-            <h2>Departure Checkout Checklist</h2>
-            <p style="margin-bottom:20px; font-style:italic; color:var(--text-muted);">Kindly walk through these property departure steps before locking up the cabin:</p>
-            
-            <div class="rule-list">
-                <div class="rule-item">
-                    <strong>🛏️ Linens & Washrooms</strong>
-                    Strip all used flat sheets, fitted mattress sheets, and pillowcases off the beds and pile them inside the large laundry basket near the washroom. Include any soiled towels or wet duvet wraps inside the basket as well. Scan all bedside walls for forgotten phone chargers!
-                </div>
-                <div class="rule-item">
-                    <strong>🍳 Kitchen Setup</strong>
-                    Meticulously wash, dry, and restack all used plates, pans, and kitchen utensils back into their storage spots. Double-check that the stove touch board, primary oven, toaster, and ventilation hood fans are completely off.
-                </div>
-                <div class="rule-item">
-                    <strong>🗑️ Trash & Sorting Protocol</strong>
-                    The Algonquin Highlands municipal site strictly mandates that local trash only be processed inside completely transparent plastic bags. Wrap all food waste and garbage inside clear bags and place them into the locked Animal-Stopper containers out on the front porch. Rinse all glass, metal, and plastic containers and empty them into the large blue porch recycling box. Flatten all corrugated boxes and place them on the sunroom table.
-                </div>
-                <div class="rule-item">
-                    <strong>🔥 Fire Security</strong>
-                    If you utilized the indoor stove, verify that the heavy cast-iron door is locked tight and push the draft air damper entirely inside to close the vents. Check the outside fire pit to make sure the ash pile is completely wet and cold.
-                </div>
-                <div class="rule-item">
-                    <strong>🧸 Lakeside Equipment</strong>
-                    Pack the dry balcony dining table cushions back inside their outdoor deck box. Return all kayaks, canoes, oars, life vests, and yard games back to their original storage zones.
-                </div>
-            </div>
-            <p style="text-align:center; margin-top:30px; font-weight:normal; font-style: italic; color: var(--accent); font-size: 1.1rem;">
-                "If an accident occurred and something broke, just drop us a quick text message. It's completely okay and we understand!"
-            </p>
-        </section>
-
-    </div>
-
-    <footer>
-        <p>Thank You for Vacationing With Us at Cottage on the Rocks!</p>
-        <p style="font-size:0.8rem; opacity:0.6; font-family: -apple-system, sans-serif;">&copy; 2026 Ronny & Cassy. Algonquin Highlands, Ontario.</p>
-    </footer>
+    <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
+    <script type="text/javascript">
+        document.addEventListener("adobe_dc_view_sdk.ready", function(){ 
+            var adobeDCView = new AdobeDC.View({
+                /* Quotes added around your ID below */
+                clientId: "01008f2ad17b487284a51f81a4c6d9a9", 
+                divId: "adobe-dc-view"
+            });
+            adobeDCView.previewFile({
+                content:{
+                    location: {
+                        /* Changed document.pdf to manual.pdf to match your GitHub file */
+                        url: "https://cottageontherocks.ca/manual.pdf"
+                    }
+                },
+                metaData:{
+                    fileName: "Cottage on the Rocks - Guest Manual.pdf"
+                }
+            }, { 
+                embedMode: "FULL_WINDOW",
+                showAnnotationTools: false,
+                showLeftHandPanel: true,
+                showDownloadPDF: true,
+                showPrintPDF: true
+            });
+        });
+    </script>
 
 </body>
 </html>
