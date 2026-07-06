@@ -3,52 +3,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cottage on the Rocks - Guest Manual</title>
+    <title>Cottage on the Rocks | Kushog Lake</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+    
     <style>
-        html, body {
+        :root {
+            --dark-blue: #0f2537;    /* Rich luxury lake blue from your manual */
+            --gold: #c5a059;         /* Sophisticated brushed champagne gold */
+            --gold-hover: #b38f46;
+            --cream: #fbf9f6;        /* High-end off-white background */
+            --text-dark: #1c252c;
+        }
+
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            height: 100%;
-            width: 100%;
-            overflow: hidden;
-            background-color: #f4f4f4;
         }
-        #adobe-dc-view {
-            width: 100%;
+
+        body, html {
             height: 100%;
+            background-color: var(--cream);
+            font-family: 'Montserrat', sans-serif;
+            color: var(--text-dark);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Full Screen Layout split with a luxury overlay */
+        .wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            padding: 40px 20px;
+            background: radial-gradient(circle at 80% 20%, rgba(197, 160, 89, 0.08), transparent 40%),
+                        linear-gradient(rgba(251, 249, 246, 0.6), rgba(251, 249, 246, 0.95)),
+                        url('https://images.unsplash.com/photo-1544644181-1484b3fdfc62?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+        }
+
+        /* Header / Logo Area */
+        header {
+            text-align: center;
+            margin-top: 5vh;
+        }
+
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            font-weight: 400;
+            color: var(--dark-blue);
+            letter-spacing: 1px;
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        header p {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.3rem;
+            color: var(--gold);
+            letter-spacing: 0.5px;
+        }
+
+        /* Central Actions Block */
+        .main-hub {
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            margin: 40px auto;
+        }
+
+        .location-badge {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: var(--text-dark);
+            opacity: 0.7;
+            margin-bottom: 40px;
+            display: block;
+            font-weight: 500;
+        }
+
+        .btn-stack {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            width: 100%;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 20px 30px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 500;
+            text-decoration: none;
+            border-radius: 0px; /* Sharp corners say premium luxury architectural design */
+            transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+        }
+
+        /* Principal Booking Action */
+        .btn-primary {
+            background-color: var(--dark-blue);
+            color: white;
+            border: 1px solid var(--dark-blue);
+        }
+
+        .btn-primary:hover {
+            background-color: transparent;
+            color: var(--dark-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(15, 37, 55, 0.15);
+        }
+
+        /* Secondary Manual Action */
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-dark);
+            border: 1px solid rgba(28, 37, 44, 0.3);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--gold);
+            color: var(--gold);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(197, 160, 89, 0.15);
+        }
+
+        /* Minimal Footer Info */
+        footer {
+            text-align: center;
+            width: 100%;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: var(--text-dark);
+            opacity: 0.6;
+            line-height: 1.8;
+            margin-bottom: 2vh;
+        }
+
+        footer a {
+            color: var(--text-dark);
+            text-decoration: none;
+            border-bottom: 1px solid rgba(0,0,0,0.2);
+            padding-bottom: 2px;
+        }
+
+        /* Mobile adjustments */
+        @media (max-width: 600px) {
+            header h1 { font-size: 2.6rem; }
+            header p { font-size: 1.1rem; }
+            .btn { padding: 18px 20px; font-size: 0.85rem; }
         }
     </style>
 </head>
 <body>
 
-    <div id="adobe-dc-view"></div>
+    <div class="wrapper">
+        
+        <header>
+            <h1>Cottage on the Rocks</h1>
+            <p>Kushog Lake</p>
+        </header>
 
-    <script src="https://acrobatservices.adobe.com/view-sdk/viewer.js"></script>
-    <script type="text/javascript">
-        document.addEventListener("adobe_dc_view_sdk.ready", function(){ 
-            var adobeDCView = new AdobeDC.View({
-                clientId: "01008f2ad17b487284a51f81a4c6d9a9", 
-                divId: "adobe-dc-view"
-            });
-            adobeDCView.previewFile({
-                content:{
-                    /* Bypasses domain mismatch/CORS errors by pulling the file locally */
-                    promise: fetch("manual.pdf").then(function(res) {
-                        return res.arrayBuffer();
-                    })
-                },
-                metaData:{
-                    fileName: "Cottage on the Rocks - Guest Manual.pdf"
-                }
-            }, { 
-                embedMode: "FULL_WINDOW",
-                showAnnotationTools: false,
-                showLeftHandPanel: true,
-                showDownloadPDF: true,
-                showPrintPDF: true
-            });
-        });
-    </script>
+        <main class="main-hub">
+            <span class="location-badge">Algonquin Highlands, ON</span>
+            
+            <div class="btn-stack">
+                <a href="https://www.airbnb.com" target="_blank" class="btn btn-primary">Book Now (Airbnb)</a>
+                
+                <a href="https://drive.google.com/file/d/1tO4JR_GJR7i7r2BNg7RrBI367ciVy1_M/view?usp=sharing" target="_blank" class="btn btn-secondary">House Manual</a>
+            </div>
+        </main>
+
+        <footer>
+            <p>1019 Classic Lane, Algonquin Highlands, ON</p>
+            <p>Text / Call: <a href="tel:4165685573">(416) 568-5573</a> &bull; Emergencies: Dial 911</p>
+        </footer>
+
+    </div>
 
 </body>
 </html>
