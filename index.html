@@ -27,16 +27,15 @@
     <script type="text/javascript">
         document.addEventListener("adobe_dc_view_sdk.ready", function(){ 
             var adobeDCView = new AdobeDC.View({
-                /* Quotes added around your ID below */
                 clientId: "01008f2ad17b487284a51f81a4c6d9a9", 
                 divId: "adobe-dc-view"
             });
             adobeDCView.previewFile({
                 content:{
-                    location: {
-                        /* Changed document.pdf to manual.pdf to match your GitHub file */
-                        url: "https://cottageontherocks.ca/manual.pdf"
-                    }
+                    /* Bypasses domain mismatch/CORS errors by pulling the file locally */
+                    promise: fetch("manual.pdf").then(function(res) {
+                        return res.arrayBuffer();
+                    })
                 },
                 metaData:{
                     fileName: "Cottage on the Rocks - Guest Manual.pdf"
